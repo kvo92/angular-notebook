@@ -8,7 +8,7 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
-        <button type="button" (click)="onSelect(hero)">
+        <button type="button" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
         <!-- <div><span>json:</span>{{hero|json}}</div> -->
         </button>
@@ -23,4 +23,6 @@
     </div>
 
 </div>
+<!-- used to refactor the code ^ to a child component -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 </ul>
